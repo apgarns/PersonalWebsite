@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Alex Garns</title>
 <style>
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
@@ -17,47 +16,39 @@
     min-height: 100vh;
   }
 
-  /* header */
+  /* header (same as other pages) */
   .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 96px;
-    background: transparent;
-    z-index: 2;
+    padding: 20px 60px;
+    background: #fff;
+    z-index: 10;
   }
 
   .brand {
     font-size: 24px;
     font-weight: 600;
-    letter-spacing: .2px;
   }
 
-  .main-nav {
-    display: flex;
-    gap: 28px;
+  .main-nav a {
+    margin-left: 20px;
+    padding: 6px 10px;
+    color: #121212;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: 0.3s;
   }
 
-.main-nav a {
-  text-decoration: none;
-  color: #121212;
-  padding: 8px 10px;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  transition: background 0.3s, color 0.3s, transform 0.2s, border 0.3s;
-}
-
-.main-nav a:hover {
-  background: #000;
-  color: #fff;
-  border: 2px solid #000;
-  transform: scale(1.05);
-}
+  .main-nav a:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
 
   /* hero section */
   .hero {
@@ -76,31 +67,6 @@
     padding: 48px 72px;
     width: 100%;
     max-width: 1000px;
-  }
-
-  .hero-frame::before,
-  .hero-frame::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 260px;
-    height: 160px;
-    pointer-events: none;
-  }
-
-  .hero-frame::before {
-    left: -20px;
-    border: 3px solid var(--green);
-    border-right: none;
-    border-radius: 8px 0 0 8px;
-  }
-
-  .hero-frame::after {
-    right: -20px;
-    border: 3px solid var(--green);
-    border-left: none;
-    border-radius: 0 8px 8px 0;
   }
 
   /* left side image */
@@ -124,16 +90,15 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-   transform: translateX(-15px);
+    transform: translateX(-15px);
   }
 
   .gif {
-width: 45;
+    width: 100%;
     max-width: 300px;
     height: auto;
     border-radius: 12px;
     margin-left: -220px;
-}
   }
 
   .hero-text h1 {
@@ -169,11 +134,7 @@ width: 45;
       gap: 32px;
       padding: 40px 24px;
     }
-    .hero-frame::before,
-    .hero-frame::after {
-      width: 70%;
-      height: 130px;
-    }
+    .gif { margin-left: 0; }
   }
 </style>
 </head>
@@ -183,8 +144,8 @@ width: 45;
   <div class="brand">Alex Garns</div>
   <nav class="main-nav">
     <a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="contacts.html">Contacts</a>
+    <a href="projects.html">Projects</a>
+    <a href="contacts.html">Contacts</a>
   </nav>
 </header>
 
@@ -193,13 +154,12 @@ width: 45;
     <!-- Left: responsive image -->
     <img class="avatar" src="me.png" alt="Alex Garns">
 
-    <!-- Right: GIF and button -->
+    <!-- Right: GIF and text -->
     <div class="hero-content">
       <img class="gif" src="HelloWorld.gif" alt="Animated gif">
-     <p>Computer Scientist specializing in cybersecurity and data systems.</p>
-     <p>Currently pursuing graduate studies to advance his expertise in cybersecurity and computer science</p>
-           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-
+      <p>Computer Scientist specializing in cybersecurity and data systems.</p>
+      <p>Currently pursuing graduate studies to advance his expertise in cybersecurity and computer science.</p>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
 </main>
