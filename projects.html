@@ -81,12 +81,6 @@ li p {
   font-size: 14px;
   color: #555;
 }
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #777;
-}
 </style>
 </head>
 <body>
@@ -94,9 +88,9 @@ footer {
 <header>
   <div class="brand">Alex Garns</div>
   <nav>
-  <a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="contacts.html">Contacts</a>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contacts.html">Contacts</a>
   </nav>
 </header>
 
@@ -108,8 +102,6 @@ footer {
 </main>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
 async function loadRepos() {
   const status = document.getElementById('repoStatus');
   const list = document.getElementById('repoList');
