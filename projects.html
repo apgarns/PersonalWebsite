@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alex Garns</title>
+<style>
+body {
+  font-family: Georgia, serif;
+  background: #fff;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+nav a {
+  margin-left: 20px;
+  padding: 6px 10px;
+  color: #121212;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+main {
+  max-width: 800px;
+  margin: 120px auto 0;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+li a {
+  font-weight: bold;
+  color: #0b57d0;
+  text-decoration: none;
+}
+
+li p {
+  margin: 4px 0;
+}
+
+.meta {
+  font-size: 14px;
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Alex Garns</div>
+  <nav>
+  <a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="contacts.html">Contacts</a>
+  </nav>
+</header>
+
+<main id="projects">
+  <h2>Projects</h2>
+  <p class="meta">Source: <a href="https://github.com/apgarns?tab=repositories" target="_blank" rel="noopener">github.com/apgarns</a></p>
+  <div id="repoStatus">Loading repositories…</div>
+  <ul id="repoList"></ul>
+</main>
+
+<footer>
+  © <span id="year"></span> Alex Garns
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+async function loadRepos() {
+  const status = document.getElementById('repoStatus');
+  const list = document.getElementById('repoList');
+  status.textContent = 'Loading repositories…';
+  list.innerHTML = '';
+
+  try {
+    const res = await fetch('https://api.github.com/users/apgarns/repos?per_page=100&sort=updated', {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+    const data = await res.json();
+
+    if (!data.length) {
+      status.textContent = 'No repositories found.';
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    data.filter(r => !r.fork).sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at)).forEach(r => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
+        <p>${r.description || 'No description'}</p>
+        <div class="meta">
+          Updated ${new Date(r.updated_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+          ${r.language ? ' • ' + r.language : ''}
+          ${r.stargazers_count ? ' • ★ ' + r.stargazers_count : ''}
+        </div>`;
+      frag.appendChild(li);
+    });
+
+    list.appendChild(frag);
+    status.textContent = '';
+  } catch (err) {
+    status.textContent = 'Could not load repositories. Try again later.';
+    console.error(err);
+  }
+}
+
+loadRepos();
+</script>
+</body>
+</html>
