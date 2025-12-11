@@ -309,24 +309,41 @@
     </p>
   </section>
 
-  <section>
-    <h2>Data Collection and User Research</h2>
-    <p>
-      The design was grounded in several rounds of data collection. First, more than
-      two thousand reviews from academic planning and calendar apps were analyzed from
-      the Google Play Store and Apple App Store. Topic modeling and text mining
-      techniques, including TF-IDF, NMF, and LDA, revealed recurring themes around
-      clarity, simplicity, synchronization reliability, and the desire for better
-      Canvas integration.
-    </p>
-    <p>
-      These findings highlighted common pain points such as slow synchronization,
-      login issues, and fragmented workflows, as well as desired features like dark
-      mode, cross-platform access, and automated reminders. The insights directly
-      informed the initial CanvasTracker requirements: a unified dashboard with clear
-      deadlines, direct Canvas links, and support for both personal and course-based tasks.
-    </p>
-  </section>
+<section>
+  <h2>Data Collection: App Review Word Clouds</h2>
+  <p>
+    During the early research phase, thousands of user reviews from various 
+    academic planning and scheduling apps were collected and analyzed. 
+    Word clouds helped reveal the most frequently used terms, highlighting 
+    recurring concerns and feature requests from real users. These insights 
+    guided the design priorities of CanvasTracker.
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+    <!-- Word Cloud 1 -->
+    <div style="flex:1; min-width:260px;">
+      <img src="images/wordcloud1.png"
+           alt="Word cloud showing terms like use, work, time, app, student, great, good, planner"
+           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+      <p class="small">
+        Word Cloud 1: Highlights common themes such as usability, time management, 
+        student needs, and overall usefulness.
+      </p>
+    </div>
+
+    <!-- Word Cloud 2 -->
+    <div style="flex:1; min-width:260px;">
+      <img src="images/wordcloud2.png"
+           alt="Word cloud showing terms like help, task, calendar, app, google"
+           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+      <p class="small">
+        Word Cloud 2: Shows how strongly users emphasize calendars, scheduling, 
+        and task management—aligning with CanvasTracker’s core goals.
+      </p>
+    </div>
+  </div>
+</section>
+
 
   <section>
     <h2>Iterations and Usability Findings</h2>
