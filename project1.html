@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CanvasTracker Prototypes – Alex Garns</title>
+
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #fff;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      z-index: 10;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      padding: 6px 10px;
+      color: #121212;
+      text-decoration: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 120px auto 40px;
+      padding: 20px;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-text {
+      flex: 1.4;
+      min-width: 260px;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .hero-text p {
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+
+    .hero-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .hero-actions a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #0b57d0;
+      color: #0b57d0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 8px;
+      transition: 0.2s;
+    }
+
+    .hero-actions a:hover {
+      background: #0b57d0;
+      color: #fff;
+    }
+
+    .hero-actions a.secondary {
+      border-color: #444;
+      color: #444;
+    }
+
+    .hero-actions a.secondary:hover {
+      background: #444;
+      color: #fff;
+    }
+
+    .hero-media {
+      flex: 1.1;
+      min-width: 240px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      display: block;
+    }
+
+    section {
+      margin-bottom: 32px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      padding: 18px 20px;
+      background: #fafafa;
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    section p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #444;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      font-size: 14px;
+      color: #777;
+      text-align: left;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      main {
+        margin-top: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Alex Garns</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>CanvasTracker Prototypes</h1>
+      <p class="tagline">
+        A Canvas-integrated academic planner that brings all assignments, deadlines,
+        and reminders into a single, low-friction dashboard.
+      </p>
+      <p class="hero-meta">
+        Role: Designer & Developer · Technologies: HTML, CSS, JavaScript, Canvas LMS API, Cloudflare Workers, Python
+      </p>
+      <div class="hero-actions">
+        <a href="https://apgarns.github.io/CanvasTrackerPrototypes/"
+           target="_blank"
+           rel="noopener">
+          View Live Demo
+        </a>
+        <a href="https://github.com/apgarns/CanvasTrackerPrototypes"
+           target="_blank"
+           rel="noopener"
+           class="secondary">
+          View Source on GitHub
+        </a>
+        <a href="projects.html" class="secondary">
+          Back to Projects
+        </a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <!-- Replace with your actual screenshot path -->
+      <img src="images/canvas-tracker-full.png"
+           alt="CanvasTracker dashboard screenshot" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      CanvasTracker is a web-based academic planning tool designed to reduce the friction
+      students experience when using the standard Canvas interface. Instead of forcing
+      users to click through multiple pages for assignments, quizzes, and announcements,
+      CanvasTracker consolidates everything into a single dashboard with multiple views.
+      The goal is to help students feel more in control of their workload, minimize
+      missed deadlines, and streamline daily planning.
+    </p>
+    <p>
+      The system integrates with Canvas, surfaces upcoming work at a glance, and lets
+      students add custom tasks alongside their official Canvas assignments so they can
+      manage their academic and personal responsibilities in one place.
+    </p>
+  </section>
+
+  <section>
+    <h2>Problem and Motivation</h2>
+    <p>
+      In the default Canvas experience, critical information is scattered across
+      courses, assignment pages, calendars, and announcement feeds. Students must
+      constantly jump between menus to piece together what is due and when. This
+      fragmentation increases cognitive load and makes it easy to overlook tasks,
+      especially when juggling multiple courses and deadlines.
+    </p>
+    <p>
+      The research problem driving this project was how an integrated academic planner
+      could improve usability, efficiency, and perceived control compared to existing
+      Canvas tools and third-party apps. CanvasTracker explores this question by
+      prioritizing clarity, low navigation friction, and a visually organized schedule.
+    </p>
+  </section>
+
+  <section>
+    <h2>Goals and Design Requirements</h2>
+    <p>
+      The main goal was to design and evaluate an integrated Canvas dashboard that
+      consolidates all assignments and deadlines into one interface with multiple views.
+      The interface needed to be quick to scan, simple to interact with, and flexible
+      enough to support different planning styles.
+    </p>
+    <p>
+      At a system level, CanvasTracker was designed to:
+    </p>
+    <p class="small">
+      Provide a centralized, low-navigation view of all upcoming assignments and deadlines;
+      reliably synchronize with Canvas so newly released tasks appear without manual copying;
+      allow users to add personal tasks or reminders that sit alongside Canvas items;
+      visually indicate urgency and status with color-coding and progress-like cues;
+      and provide direct hyperlinks from each task back to its original Canvas page.
+    </p>
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <p>
+      The interface is built around a unified dashboard that can be viewed either as a
+      calendar or as a list. In both modes, tasks are easy to find, filter, and manage
+      without navigating away from the main page. Users can add tasks, set due dates,
+      enable reminders, and mark items as complete.
+    </p>
+    <p>
+      Color and layout are used to communicate urgency and category. Tasks are grouped
+      by due date, and the calendar view supports expanding a specific day to see all
+      details at once. Direct links jump users into the corresponding Canvas assignment
+      page when they are ready to submit or view more details, reducing the number of
+      clicks required to get from planning to action.
+    </p>
+  </section>
+
+  <section>
+    <h2>Technology Stack</h2>
+    <p>
+      The project uses a lightweight but flexible stack centered around web standards
+      and the Canvas LMS API. The front end is implemented with HTML5, CSS3, and
+      vanilla JavaScript to keep interactions responsive and easy to maintain. Task
+      lists and calendar views are rendered in the browser, emphasizing clarity and
+      responsiveness.
+    </p>
+    <p>
+      CanvasTracker communicates with Canvas through a custom API proxy built with a
+      Cloudflare Worker. This layer handles authentication and API requests while
+      shielding client-side code from exposing sensitive tokens. Python scripts were
+      used during development for data analysis and preprocessing tasks related to
+      user feedback and app review text mining.
+    </p>
+  </section>
+
+  <section>
+    <h2>Data Collection and User Research</h2>
+    <p>
+      The design was grounded in several rounds of data collection. First, more than
+      two thousand reviews from academic planning and calendar apps were analyzed from
+      the Google Play Store and Apple App Store. Topic modeling and text mining
+      techniques, including TF-IDF, NMF, and LDA, revealed recurring themes around
+      clarity, simplicity, synchronization reliability, and the desire for better
+      Canvas integration.
+    </p>
+    <p>
+      These findings highlighted common pain points such as slow synchronization,
+      login issues, and fragmented workflows, as well as desired features like dark
+      mode, cross-platform access, and automated reminders. The insights directly
+      informed the initial CanvasTracker requirements: a unified dashboard with clear
+      deadlines, direct Canvas links, and support for both personal and course-based tasks.
+    </p>
+  </section>
+
+  <section>
+    <h2>Iterations and Usability Findings</h2>
+    <p>
+      CanvasTracker went through multiple design and evaluation iterations. Early
+      versions tested variations of calendar and list views, as well as different
+      task creation flows. Users consistently rated both views positively and described
+      the interface as clean and simple, with task creation and the calendar
+      day-expansion feature standing out as highly useful.
+    </p>
+    <p>
+      Feedback guided several improvements, such as adding clearer controls for
+      deleting, editing, or reordering tasks, avoiding duplicates when syncing,
+      showing more tasks per calendar view, and options for hiding completed or
+      distant tasks. Additional suggestions included class-based color coding and
+      an optional time field for deadlines.
+    </p>
+    <p>
+      In later rounds, usability metrics and NASA-TLX workload scores indicated a
+      low mental demand and low frustration experience. Participants reported that
+      CanvasTracker felt intuitive, well organized, and effective for managing a
+      busy schedule. Many preferred it over the native Canvas interface for daily
+      assignment management and filtering, though some still relied on Canvas for
+      announcements.
+    </p>
+  </section>
+
+  <section>
+    <h2>Outcome and Reflection</h2>
+    <p>
+      The final prototypes demonstrate that an integrated, Canvas-aware planner can
+      meaningfully reduce the friction of staying on top of coursework. By simplifying
+      navigation, presenting all tasks in one place, and supporting both Canvas and
+      personal items, CanvasTracker helps students feel more organized and in control
+      of their time.
+    </p>
+    <p>
+      Future directions include deeper calendar integration, richer color-coding and
+      tagging options, improved task history views, and additional accessibility
+      refinements. With native Canvas integration, CanvasTracker or a similar tool
+      could serve as a primary daily planning surface for students.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    CanvasTracker Prototypes is an academic project exploring how interface design and
+    integration with Canvas LMS can improve students’ sense of control, reduce cognitive
+    load, and streamline assignment planning.
+  </p>
+</footer>
+
+</body>
+</html>
