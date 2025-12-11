@@ -81,6 +81,76 @@ li p {
   font-size: 14px;
   color: #555;
 }
+
+/* Featured project box */
+.featured-project {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  margin-bottom: 32px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  align-items: stretch;
+}
+
+.featured-media {
+  flex: 1.1;
+}
+
+.featured-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  display: block;
+}
+
+.featured-content {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-project h2 {
+  text-align: left;
+  margin: 0 0 8px;
+}
+
+.featured-content p {
+  margin: 0 0 12px;
+}
+
+.featured-link {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #0b57d0;
+  color: #0b57d0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.featured-link:hover {
+  background: #0b57d0;
+  color: #fff;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 700px) {
+  .featured-project {
+    flex-direction: column;
+  }
+
+  .featured-media img {
+    max-height: 220px;
+  }
+}
 </style>
 </head>
 <body>
@@ -95,6 +165,29 @@ li p {
 </header>
 
 <main id="projects">
+
+  <!-- Featured project box -->
+  <section class="featured-project">
+    <div class="featured-media">
+      <!-- Replace the src below with your actual screenshot path -->
+      <img src="images/canvas-tracker-preview.png" alt="Screenshot of the CanvasTracker prototypes website" />
+    </div>
+    <div class="featured-content">
+      <h2>CanvasTracker Prototypes</h2>
+      <p>
+        CanvasTracker Prototypes is a collection of HTML5 canvas experiments for tracking and visualizing
+        pointer interactions. It explores different UI patterns for capturing drawing gestures, cursor paths,
+        and interaction data directly in the browser.
+      </p>
+      <a class="featured-link"
+         href="https://github.com/apgarns/CanvasTrackerPrototypes"
+         target="_blank"
+         rel="noopener">
+        View project on GitHub
+      </a>
+    </div>
+  </section>
+
   <h2>Projects</h2>
   <p class="meta">Source: <a href="https://github.com/apgarns?tab=repositories" target="_blank" rel="noopener">github.com/apgarns</a></p>
   <div id="repoStatus">Loading repositories…</div>
