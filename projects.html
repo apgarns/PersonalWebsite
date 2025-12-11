@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Alex Garns</title>
+
 <style>
 body {
   font-family: Georgia, serif;
@@ -141,7 +142,19 @@ li p {
   color: #fff;
 }
 
-/* Responsive layout for smaller screens */
+/* Second button styling */
+.secondary-link {
+  margin-top: 10px;
+  border-color: #444;
+  color: #444;
+}
+
+.secondary-link:hover {
+  background: #444;
+  color: #fff;
+}
+
+/* Responsive layout */
 @media (max-width: 700px) {
   .featured-project {
     flex-direction: column;
@@ -166,30 +179,43 @@ li p {
 
 <main id="projects">
 
-  <!-- Featured project box -->
+  <!-- Featured Project -->
   <section class="featured-project">
     <div class="featured-media">
-      <!-- Replace the src below with your actual screenshot path -->
-      <img src="images/canvas-tracker-preview.png" alt="Screenshot of the CanvasTracker prototypes website" />
+      <img src="images/canvas-tracker-preview.png"
+           alt="Screenshot of the CanvasTracker prototypes website" />
     </div>
+
     <div class="featured-content">
       <h2>CanvasTracker Prototypes</h2>
       <p>
-        CanvasTracker Prototypes is a collection of HTML5 canvas experiments for tracking and visualizing
-        pointer interactions. It explores different UI patterns for capturing drawing gestures, cursor paths,
-        and interaction data directly in the browser.
+        CanvasTracker Prototypes is a collection of interactive HTML5 canvas  
+        experiments for capturing, tracking, and visualizing user pointer  
+        interactions. It explores techniques for drawing, gesture tracking,  
+        and responsive UI feedback directly in the browser.
       </p>
+
       <a class="featured-link"
          href="https://github.com/apgarns/CanvasTrackerPrototypes"
          target="_blank"
          rel="noopener">
-        View project on GitHub
+        View Project on GitHub
+      </a>
+
+      <a class="featured-link secondary-link"
+         href="project1.html">
+        View More Information
       </a>
     </div>
   </section>
 
   <h2>Projects</h2>
-  <p class="meta">Source: <a href="https://github.com/apgarns?tab=repositories" target="_blank" rel="noopener">github.com/apgarns</a></p>
+  <p class="meta">Source: 
+    <a href="https://github.com/apgarns?tab=repositories" target="_blank" rel="noopener">
+      github.com/apgarns
+    </a>
+  </p>
+
   <div id="repoStatus">Loading repositories…</div>
   <ul id="repoList"></ul>
 </main>
@@ -205,6 +231,7 @@ async function loadRepos() {
     const res = await fetch('https://api.github.com/users/apgarns/repos?per_page=100&sort=updated', {
       headers: { 'Accept': 'application/vnd.github+json' }
     });
+
     if (!res.ok) throw new Error('GitHub API error: ' + res.status);
     const data = await res.json();
 
@@ -214,21 +241,25 @@ async function loadRepos() {
     }
 
     const frag = document.createDocumentFragment();
-    data.filter(r => !r.fork).sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at)).forEach(r => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
-        <p>${r.description || 'No description'}</p>
-        <div class="meta">
-          Updated ${new Date(r.updated_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
-          ${r.language ? ' • ' + r.language : ''}
-          ${r.stargazers_count ? ' • ★ ' + r.stargazers_count : ''}
-        </div>`;
-      frag.appendChild(li);
-    });
+
+    data.filter(r => !r.fork)
+        .sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .forEach(r => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
+            <p>${r.description || 'No description'}</p>
+            <div class="meta">
+              Updated ${new Date(r.updated_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+              ${r.language ? ' • ' + r.language : ''}
+              ${r.stargazers_count ? ' • ★ ' + r.stargazers_count : ''}
+            </div>`;
+          frag.appendChild(li);
+        });
 
     list.appendChild(frag);
     status.textContent = '';
+
   } catch (err) {
     status.textContent = 'Could not load repositories. Try again later.';
     console.error(err);
@@ -237,5 +268,6 @@ async function loadRepos() {
 
 loadRepos();
 </script>
+
 </body>
 </html>
