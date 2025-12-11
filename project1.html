@@ -153,6 +153,32 @@
       color: #555;
     }
 
+    .demo-media {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .demo-media figure {
+      flex: 1;
+      min-width: 260px;
+      margin: 0;
+    }
+
+    .demo-media img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      display: block;
+    }
+
+    .demo-media figcaption {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #555;
+    }
+
     footer {
       max-width: 900px;
       margin: 0 auto 40px;
@@ -194,7 +220,7 @@
         and reminders into a single, low-friction dashboard.
       </p>
       <p class="hero-meta">
-        Role: Designer & Developer · Technologies: HTML, CSS, JavaScript, Canvas LMS API, Cloudflare Workers, Python
+        Group project · Role: Designer & Developer · Technologies: HTML, CSS, JavaScript, Canvas LMS API, Cloudflare Workers, Python
       </p>
       <div class="hero-actions">
         <a href="https://apgarns.github.io/CanvasTrackerPrototypes/"
@@ -214,14 +240,35 @@
       </div>
     </div>
     <div class="hero-media">
-      <!-- Replace with your actual screenshot path -->
       <img src="images/canvas-tracker-full.png"
            alt="CanvasTracker dashboard screenshot" />
     </div>
   </section>
 
+  <!-- GIF demo requirement -->
   <section>
-    <h2>Overview</h2>
+    <h2>Demo</h2>
+    <p>
+      This demo shows the final CanvasTracker prototype in action, including adding tasks,
+      syncing upcoming assignments from Canvas, filtering by course, and switching between
+      light and dark modes.
+    </p>
+    <div class="demo-media">
+      <figure>
+        <!-- Replace with your actual GIF file -->
+        <img src="images/canvas-tracker-demo.gif"
+             alt="Animated GIF showing CanvasTracker interaction flow" />
+        <figcaption class="small">
+          Short GIF illustrating the core interaction flow for adding tasks and syncing with Canvas.
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- Description & Motivation requirement -->
+  <section>
+    <h2>Description and Motivation</h2>
     <p>
       CanvasTracker is a web-based academic planning tool designed to reduce the friction
       students experience when using the standard Canvas interface. Instead of forcing
@@ -231,26 +278,14 @@
       missed deadlines, and streamline daily planning.
     </p>
     <p>
-      The system integrates with Canvas, surfaces upcoming work at a glance, and lets
-      students add custom tasks alongside their official Canvas assignments so they can
-      manage their academic and personal responsibilities in one place.
-    </p>
-  </section>
-
-  <section>
-    <h2>Problem and Motivation</h2>
-    <p>
       In the default Canvas experience, critical information is scattered across
       courses, assignment pages, calendars, and announcement feeds. Students must
       constantly jump between menus to piece together what is due and when. This
       fragmentation increases cognitive load and makes it easy to overlook tasks,
-      especially when juggling multiple courses and deadlines.
-    </p>
-    <p>
-      The research problem driving this project was how an integrated academic planner
-      could improve usability, efficiency, and perceived control compared to existing
-      Canvas tools and third-party apps. CanvasTracker explores this question by
-      prioritizing clarity, low navigation friction, and a visually organized schedule.
+      especially when juggling multiple courses and deadlines. Our group set out to
+      explore how an integrated Canvas-aware planner could improve usability,
+      efficiency, and perceived control compared to existing Canvas tools and
+      third-party apps.
     </p>
   </section>
 
@@ -263,14 +298,12 @@
       enough to support different planning styles.
     </p>
     <p>
-      At a system level, CanvasTracker was designed to:
-    </p>
-    <p class="small">
-      Provide a centralized, low-navigation view of all upcoming assignments and deadlines;
-      reliably synchronize with Canvas so newly released tasks appear without manual copying;
-      allow users to add personal tasks or reminders that sit alongside Canvas items;
-      visually indicate urgency and status with color-coding and progress-like cues;
-      and provide direct hyperlinks from each task back to its original Canvas page.
+      At a system level, CanvasTracker was designed to provide a centralized, low-navigation
+      view of all upcoming assignments and deadlines, reliably synchronize with Canvas so
+      newly released tasks appear without manual copying, allow users to add personal tasks
+      or reminders that sit alongside Canvas items, visually indicate urgency and status
+      with color-coding and progress-like cues, and provide direct hyperlinks from each task
+      back to its original Canvas page.
     </p>
   </section>
 
@@ -309,250 +342,242 @@
     </p>
   </section>
 
-<section>
-  <h2>Data Collection: App Review Word Clouds</h2>
-  <p>
-    During the early research phase, thousands of user reviews from various 
-    academic planning and scheduling apps were collected and analyzed. 
-    Word clouds helped reveal the most frequently used terms, highlighting 
-    recurring concerns and feature requests from real users. These insights 
-    guided the design priorities of CanvasTracker.
-  </p>
-
-  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
-    <!-- Word Cloud 1 -->
-    <div style="flex:1; min-width:260px;">
-      <img src="images/wordcloud1.png"
-           alt="Word cloud showing terms like use, work, time, app, student, great, good, planner"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Word Cloud 1: Highlights common themes such as usability, time management, 
-        student needs, and overall usefulness.
-      </p>
-    </div>
-
-    <!-- Word Cloud 2 -->
-    <div style="flex:1; min-width:260px;">
-      <img src="images/wordcloud2.png"
-           alt="Word cloud showing terms like help, task, calendar, app, google"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Word Cloud 2: Shows how strongly users emphasize calendars, scheduling, 
-        and task management—aligning with CanvasTracker’s core goals.
-      </p>
-    </div>
-  </div>
-</section>
-
+  <!-- Online Study requirement -->
   <section>
-  <h2>Data Collection 2: Interface Evaluation Results</h2>
-  <p>
-    After creating early interactive prototypes for both the Calendar View and 
-    the List View, users were asked to evaluate each layout based on clarity, 
-    usability, and overall intuitiveness. Participants rated statements on a 
-    5-point Likert scale ranging from Strongly Disagree (1) to Strongly Agree (5).
-  </p>
-
-  <p>
-    The results provide insight into which layout communicated information more 
-    effectively and which interaction patterns felt easiest for users.
-  </p>
-
-  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
-
-    <!-- Calendar View Evaluation Chart -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/data2-calendar.png"
-           alt="Bar chart showing Calendar View usability evaluation scores"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Evaluation of the Calendar View. Users generally found the interface visually 
-        clear, though some felt the layout was less intuitive than the List View.
-      </p>
-    </div>
-
-    <!-- List View Evaluation Chart -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/data2-list.png"
-           alt="Bar chart showing List View usability evaluation scores"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Evaluation of the List View. Participants reported stronger usability scores 
-        overall, especially for clarity, ease of identifying assignments, and task entry.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-  <section>
-  <h2>Data Collection 3: Workload & Usability Evaluation</h2>
-  <p>
-    To better understand how users experienced CanvasTracker during hands-on testing, 
-    participants completed a NASA Task Load Index (TLX) assessment and provided 
-    additional usability feedback. These evaluations helped measure perceived mental 
-    demand, effort, frustration, and overall interaction satisfaction.
-  </p>
-
-  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
-
-    <!-- NASA TLX Chart -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/data3-tlx.png"
-           alt="NASA TLX workload evaluation chart including mental demand, effort, and frustration"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        NASA TLX results indicate low mental demand, low effort, and very low frustration 
-        when using the system — suggesting that the planner was intuitive and low-stress 
-        to interact with.
-      </p>
-    </div>
-
-    <!-- Usability Feedback Chart -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/data3-usability.png"
-           alt="Usability feedback chart showing strong agreement across ease of use and organization"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Usability feedback shows high agreement that the system was easy to use, well 
-        organized, and made it easy to find assignments. Users also reported feeling 
-        in control and expressed interest in regular use if integrated with Canvas.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-  <section>
-    <h2>Iterations and Usability Findings</h2>
+    <h2>Online Study: App Review Analysis</h2>
     <p>
-      CanvasTracker went through multiple design and evaluation iterations. Early
-      versions tested variations of calendar and list views, as well as different
-      task creation flows. Users consistently rated both views positively and described
-      the interface as clean and simple, with task creation and the calendar
-      day-expansion feature standing out as highly useful.
+      During the early research phase, thousands of user reviews from various 
+      academic planning and scheduling apps were collected and analyzed. 
+      Word clouds helped reveal the most frequently used terms, highlighting 
+      recurring concerns and feature requests from real users. These insights 
+      guided the design priorities of CanvasTracker and grounded the project in
+      real-world expectations for scheduling tools.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+      <div style="flex:1; min-width:260px;">
+        <img src="images/wordcloud1.png"
+             alt="Word cloud showing terms like use, work, time, app, student, great, good, planner"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Word Cloud 1 highlights common themes such as usability, time management, 
+          student needs, and overall usefulness.
+        </p>
+      </div>
+
+      <div style="flex:1; min-width:260px;">
+        <img src="images/wordcloud2.png"
+             alt="Word cloud showing terms like help, task, calendar, app, google"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Word Cloud 2 shows how strongly users emphasize calendars, scheduling, 
+          and task management, which directly aligns with CanvasTracker’s goals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prototyping Phase requirement: summary + detailed iterations -->
+  <section>
+    <h2>Prototyping Phase</h2>
+    <p>
+      The prototyping phase moved from hand-drawn sketches to interactive digital
+      interfaces. Iteration 1 focused on quick wireframes to explore layout ideas,
+      Iteration 2 translated those sketches into working low- and mid-fidelity
+      prototypes, and Iteration 3 refined the interface into the final high-fidelity
+      design used in the user studies.
     </p>
     <p>
-      Feedback guided several improvements, such as adding clearer controls for
-      deleting, editing, or reordering tasks, avoiding duplicates when syncing,
-      showing more tasks per calendar view, and options for hiding completed or
-      distant tasks. Additional suggestions included class-based color coding and
-      an optional time field for deadlines.
-    </p>
-    <p>
-      In later rounds, usability metrics and NASA-TLX workload scores indicated a
-      low mental demand and low frustration experience. Participants reported that
-      CanvasTracker felt intuitive, well organized, and effective for managing a
-      busy schedule. Many preferred it over the native Canvas interface for daily
-      assignment management and filtering, though some still relied on Canvas for
-      announcements.
+      Each iteration was evaluated with users, and their feedback shaped how tasks
+      were displayed, how synchronization behaved, and how much control students
+      felt over their schedule.
     </p>
   </section>
 
   <section>
-  <h2>Iteration 1: Early Wireframes</h2>
-  <p>
-    The first iteration focused on sketching out basic layouts for the task manager 
-    and calendar dashboard. These hand-drawn wireframes explored how users might add 
-    tasks, view upcoming deadlines, and interact with a simplified version of the 
-    CanvasTracker interface before moving into digital prototyping.
-  </p>
+    <h2>Iteration 1: Early Wireframes</h2>
+    <p>
+      The first iteration focused on sketching out basic layouts for the task manager 
+      and calendar dashboard. These hand-drawn wireframes explored how users might add 
+      tasks, view upcoming deadlines, and interact with a simplified version of the 
+      CanvasTracker interface before moving into digital prototyping.
+    </p>
 
-  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
-    
-    <!-- Wireframe 1 -->
-    <div style="flex:1; min-width:260px;">
-      <img src="images/iteration1-tasklist.png"
-           alt="Iteration 1 wireframe showing a task list and add-task form"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Early task list layout with checkboxes, dates, and a minimal add-task form.
-      </p>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+      <div style="flex:1; min-width:260px;">
+        <img src="images/iteration1-tasklist.png"
+             alt="Iteration 1 wireframe showing a task list and add-task form"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Early task list layout with checkboxes, dates, and a minimal add-task form.
+        </p>
+      </div>
+
+      <div style="flex:1; min-width:260px;">
+        <img src="images/iteration1-dashboard.png"
+             alt="Iteration 1 dashboard wireframe showing a calendar and task creation area"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Concept dashboard combining a calendar with quick task entry and synchronized assignments.
+        </p>
+      </div>
     </div>
-
-    <!-- Wireframe 2 -->
-    <div style="flex:1; min-width:260px;">
-      <img src="images/iteration1-dashboard.png"
-           alt="Iteration 1 dashboard wireframe showing a calendar and task creation area"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Concept dashboard combining a calendar with quick task entry and synchronized assignments.
-      </p>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <section>
-  <h2>Iteration 2: Digital Prototypes</h2>
-  <p>
-    Building on the hand-drawn wireframes from Iteration 1, the next phase involved
-    developing early digital versions of the CanvasTracker interface. These prototypes
-    began shaping the layout, interaction flow, and visual hierarchy while still
-    maintaining a lightweight structure suitable for rapid iteration.
-  </p>
-
-  <p>
-    The first prototype introduced a very simple UI, testing the core functionality
-    of adding tasks, syncing with Canvas, and showing due dates. The second prototype
-    refined typography, spacing, interaction controls, and began exploring dark mode
-    and filtering logic.
-  </p>
-
-  <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
-
-    <!-- Iteration 2 Prototype 1 -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/iteration2-v1.png"
-           alt="Early digital prototype of CanvasTracker showing add task and calendar layout"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Early digital prototype focusing on basic task creation and calendar display.
-        This version closely follows the structure of the initial paper sketches.
-      </p>
-    </div>
-
-    <!-- Iteration 2 Prototype 2 -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/iteration2-v2.png"
-           alt="Refined digital prototype of the CanvasTracker task management interface"
-           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-      <p class="small">
-        Refined prototype introducing improved spacing, form structure, filters,
-        dark mode toggle, and clearer task input behaviors.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <h2>Iteration 3: Final Version</h2>
-  <p>
-    The final iteration of CanvasTracker represents a fully refined interface based on 
-    insights gathered from user testing, workload assessments, and structured evaluation 
-    of earlier prototypes. This version features a polished dark-mode layout, clearer task 
-    organization, improved spacing, and streamlined interactions for syncing Canvas 
-    assignments and filtering upcoming tasks.
-  </p>
-
-  <p>
-    By incorporating consistent feedback across multiple rounds of usability testing, 
-    the design balances readability, efficiency, and visual clarity — delivering a clean, 
-    modern task management environment that aligns with students’ real needs.
-  </p>
-
-  <div style="margin-top:18px;">
-    <img src="images/canvas-tracker-full.png"
-         alt="Final version of CanvasTracker interface with dark mode layout and improved task organization"
-         style="width:100%; border-radius:10px; border:1px solid #ddd;" />
-    <p class="small">
-      Final high-fidelity interface featuring enhanced dark mode, clearer task grouping, 
-      improved filtering controls, and refined Canvas sync options.
+    <h2>Iteration 2: Digital Prototypes</h2>
+    <p>
+      Building on the hand-drawn wireframes from Iteration 1, the next phase involved
+      developing early digital versions of the CanvasTracker interface. These prototypes
+      began shaping the layout, interaction flow, and visual hierarchy while still
+      maintaining a lightweight structure suitable for rapid iteration.
     </p>
-  </div>
-</section>
+    <p>
+      The first prototype introduced a very simple interface for adding tasks, syncing
+      with Canvas, and showing due dates. The second prototype refined typography,
+      spacing, interaction controls, and began exploring dark mode and filtering logic.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+      <div style="flex:1; min-width:300px;">
+        <img src="images/iteration2-v1.png"
+             alt="Early digital prototype of CanvasTracker showing add task and calendar layout"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Early digital prototype focusing on basic task creation and calendar display.
+          This version closely follows the structure of the initial paper sketches.
+        </p>
+      </div>
+
+      <div style="flex:1; min-width:300px;">
+        <img src="images/iteration2-v2.png"
+             alt="Refined digital prototype of the CanvasTracker task management interface"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Refined prototype introducing improved spacing, form structure, filters,
+          dark mode toggle, and clearer task input behaviors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Iteration 3: Final Version</h2>
+    <p>
+      The final iteration of CanvasTracker represents a fully refined interface based on 
+      insights gathered from user testing, workload assessments, and structured evaluation 
+      of earlier prototypes. This version features a polished dark-mode layout, clearer task 
+      organization, improved spacing, and streamlined interactions for syncing Canvas 
+      assignments and filtering upcoming tasks.
+    </p>
+    <p>
+      By incorporating consistent feedback across multiple rounds of usability testing, 
+      the design balances readability, efficiency, and visual clarity, delivering a clean, 
+      modern task management environment that aligns with students’ real needs.
+    </p>
+
+    <div style="margin-top:18px;">
+      <img src="images/iteration3-final.png"
+           alt="Final version of CanvasTracker interface with dark mode layout and improved task organization"
+           style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+      <p class="small">
+        Final high-fidelity interface featuring enhanced dark mode, clearer task grouping, 
+        improved filtering controls, and refined Canvas sync options.
+      </p>
+    </div>
+  </section>
+
+  <!-- User Study 1 requirement -->
+  <section>
+    <h2>User Study 1: Interface Evaluation Results</h2>
+    <p>
+      After creating early interactive prototypes for both the Calendar View and 
+      the List View, users were asked to evaluate each layout based on clarity, 
+      usability, and overall intuitiveness. Participants rated statements on a 
+      five-point Likert scale ranging from Strongly Disagree to Strongly Agree.
+    </p>
+    <p>
+      The study provided insight into which layout communicated information more 
+      effectively and which interaction patterns felt easiest for users.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+      <div style="flex:1; min-width:300px;">
+        <img src="images/data2-calendar.png"
+             alt="Bar chart showing Calendar View usability evaluation scores"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Evaluation of the Calendar View. Users generally found the interface visually 
+          clear, though some felt the layout was less intuitive than the List View.
+        </p>
+      </div>
+
+      <div style="flex:1; min-width:300px;">
+        <img src="images/data2-list.png"
+             alt="Bar chart showing List View usability evaluation scores"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Evaluation of the List View. Participants reported stronger usability scores 
+          overall, especially for clarity, ease of identifying assignments, and task entry.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- User Study 2 requirement -->
+  <section>
+    <h2>User Study 2: Workload and Usability Evaluation</h2>
+    <p>
+      To better understand how users experienced CanvasTracker during hands-on testing, 
+      participants completed a NASA Task Load Index assessment and a short usability
+      questionnaire. These evaluations measured perceived mental demand, effort,
+      frustration, and overall interaction satisfaction.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;">
+      <div style="flex:1; min-width:300px;">
+        <img src="images/data3-tlx.png"
+             alt="NASA TLX workload evaluation chart including mental demand, effort, and frustration"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          NASA TLX results indicate low mental demand, low effort, and very low frustration 
+          when using the system, suggesting that the planner was intuitive and low-stress 
+          to interact with.
+        </p>
+      </div>
+
+      <div style="flex:1; min-width:300px;">
+        <img src="images/data3-usability.png"
+             alt="Usability feedback chart showing strong agreement across ease of use and organization"
+             style="width:100%; border-radius:10px; border:1px solid #ddd;" />
+        <p class="small">
+          Usability feedback shows high agreement that the system was easy to use, well 
+          organized, and made it easy to find assignments. Users also reported feeling 
+          in control and expressed interest in regular use if integrated with Canvas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Iterations and Overall Findings</h2>
+    <p>
+      Across all iterations, users consistently described the interface as clean and
+      simple, with task creation and the calendar day-expansion feature standing out
+      as particularly useful. Feedback guided improvements such as clearer controls for
+      deleting, editing, or reordering tasks, avoiding duplicates when syncing, showing
+      more tasks per calendar view, and adding options for hiding completed or distant
+      tasks. Suggestions such as class-based color coding and optional time fields for
+      deadlines informed future design directions.
+    </p>
+    <p>
+      Usability metrics and NASA-TLX workload scores indicated low mental demand and
+      low frustration. Participants reported that CanvasTracker felt intuitive, well
+      organized, and effective for managing a busy schedule. Many preferred it over
+      the native Canvas interface for daily assignment management and filtering, while
+      still relying on Canvas for announcements.
+    </p>
+  </section>
 
   <section>
     <h2>Outcome and Reflection</h2>
